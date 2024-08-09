@@ -82,14 +82,13 @@ class Protocol::V05::TestAttributes < Net::SFTP::TestCase
   private
 
     def full_buffer
-      Net::SSH::Buffer.from(:long, 0x8000fffd,
+      Net::SSH::Buffer.from(:long, 0x800003fd,
         :byte, 9, :int64, 1234567890,
         :string, "jamis", :string, "users",
         :long, 0755,
         :int64, 1234567890, :long, 12345,
         :int64, 2345678901, :long, 23456,
         :int64, 3456789012, :long, 34567,
-        :int64, 4567890123, :long, 45678,
         :string, raw(:long, 2,
           :long, 1, :long, 2, :long, 3, :string, "foo",
           :long, 4, :long, 5, :long, 6, :string, "bar"),
